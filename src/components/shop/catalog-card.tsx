@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { FoodImage } from "@/components/shop/food-image";
 import { Price } from "@/components/shop/price";
 import type { CatalogItem } from "@/types/catalog";
@@ -11,9 +12,11 @@ export function CatalogCard({ item }: CatalogCardProps) {
   const discountPercent = Math.round(
     (1 - item.finalPrice / item.originalPrice) * 100,
   );
+  const href =
+    item.kind === "product" ? `/product/${item.slug}` : `/combo/${item.slug}`;
 
   return (
-    <article className="flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
+    <article className="relative flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-shadow hover:shadow-md has-focus-visible:ring-4 has-focus-visible:ring-ruby">
       <div className="relative aspect-4/3 bg-gold">
         <FoodImage src={item.imageUrl} alt={item.name} />
         {hasDiscount && (
@@ -23,7 +26,11 @@ export function CatalogCard({ item }: CatalogCardProps) {
         )}
       </div>
       <div className="flex flex-1 flex-col gap-2 p-3 sm:p-4">
-        <h3 className="font-display text-lg leading-tight">{item.name}</h3>
+        <h3 className="font-display text-lg leading-tight">
+          <Link href={href} className="after:absolute after:inset-0">
+            {item.name}
+          </Link>
+        </h3>
         <p className="line-clamp-2 text-sm text-muted-foreground">
           {item.description}
         </p>
