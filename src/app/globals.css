@@ -128,3 +128,50 @@
     @apply font-sans;
   }
 }
+
+:root {
+  color-scheme: light;
+  --background: #fff4dc;
+  --foreground: #120c08;
+  --card: #fffbf0;
+  --card-foreground: #120c08;
+  --popover: #fffbf0;
+  --popover-foreground: #120c08;
+  --primary: #d7261e;
+  --primary-foreground: #fff4dc;
+  --secondary: #f5b800;
+  --secondary-foreground: #120c08;
+  --muted: #f3e5c0;
+  --muted-foreground: #5c4a3a;
+  --accent: #f5b800;
+  --accent-foreground: #120c08;
+  --destructive: #b3180f;
+  --border: #e6d5aa;
+  --input: #e6d5aa;
+  --ring: #d7261e;
+  --radius: 0.75rem;
+}
+
+@theme inline {
+  --color-ink: #120c08;
+  --color-gold: #f5b800;
+  --color-ruby: #d7261e;
+  --color-cream: #fff4dc;
+  --font-sans: var(--font-nunito);
+  --font-display: var(--font-alfa);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-nunito), system-ui, sans-serif;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-ruby);
+  outline-offset: 2px;
+}
+
+.on-dark :focus-visible {
+  outline-color: var(--color-gold);
+}
