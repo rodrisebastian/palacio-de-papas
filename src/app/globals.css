@@ -175,3 +175,10 @@ body {
 .on-dark :focus-visible {
   outline-color: var(--color-gold);
 }
+
+@utility page-container {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 90rem;
+  padding-inline: 1rem;
+}

@@ -1,3 +1,5 @@
+import { Suspense } from "react";
+import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 
 export default function ShopLayout({
@@ -15,6 +17,9 @@ export default function ShopLayout({
       <main id="contenido" className="min-h-[60vh]">
         {children}
       </main>
+      <Suspense fallback={<div className="mt-16 h-48 bg-ink" aria-hidden="true" />}>
+        <SiteFooter />
+      </Suspense>
     </>
   );
 }

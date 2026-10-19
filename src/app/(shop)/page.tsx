@@ -1,17 +1,15 @@
-import Image from "next/image";
+import { Suspense } from "react";
+import { CatalogSkeleton } from "@/components/shop/catalog-skeleton";
+import { HomeCatalog } from "@/components/shop/home-catalog";
+import { HomeHero } from "@/components/shop/home-hero";
 
 export default function HomePage() {
   return (
-    <section aria-label="Bienvenida" className="bg-black">
-      <Image
-        src="/brand/banner.png"
-        alt="El Palacio de las Papas: hamburguesas, papas gigantes, bebidas y sabor real"
-        width={1983}
-        height={793}
-        priority
-        sizes="100vw"
-        className="mx-auto h-auto w-full max-w-6xl"
-      />
-    </section>
+    <>
+      <HomeHero />
+      <Suspense fallback={<CatalogSkeleton />}>
+        <HomeCatalog />
+      </Suspense>
+    </>
   );
 }

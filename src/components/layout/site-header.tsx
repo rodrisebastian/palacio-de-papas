@@ -10,7 +10,7 @@ const links = [
 export function SiteHeader() {
   return (
     <header className="on-dark sticky top-0 z-40 bg-black text-cream">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-2">
+      <div className="page-container flex items-center justify-between gap-4 py-2">
         <Link
           href="/"
           className="flex items-center gap-3"
