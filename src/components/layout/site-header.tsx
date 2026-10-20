@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { AccountMenu } from "@/components/layout/account-menu";
 import { CartLink } from "@/components/layout/cart-link";
 
 const links = [
@@ -45,6 +46,7 @@ export function SiteHeader() {
             </ul>
           </nav>
           <CartLink />
+          <AccountMenu />
         </div>
       </div>
     </header>
