@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { CartLink } from "@/components/layout/cart-link";
 
 const links = [
   { href: "/#menu", label: "Menú" },
@@ -22,26 +23,29 @@ export function SiteHeader() {
             width={56}
             height={56}
             priority
-            className="h-14 w-14"
+            className="size-14"
           />
-          <span className="hidden font-display text-xl text-gold sm:block">
+          <span className="hidden font-display text-xl text-gold md:block">
             El Palacio de las Papas
           </span>
         </Link>
-        <nav aria-label="Principal">
-          <ul className="flex items-center gap-1">
-            {links.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className="inline-flex min-h-11 items-center rounded-full px-4 text-base font-bold hover:bg-gold hover:text-ink"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
+        <div className="flex items-center gap-1">
+          <nav aria-label="Principal" className="hidden sm:block">
+            <ul className="flex items-center gap-1">
+              {links.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="inline-flex min-h-11 items-center rounded-full px-4 text-base font-bold hover:bg-gold hover:text-ink"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+          <CartLink />
+        </div>
       </div>
     </header>
   );
