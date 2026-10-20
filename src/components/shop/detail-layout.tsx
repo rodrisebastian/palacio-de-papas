@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { FoodImage } from "@/components/shop/food-image";
 import { Price } from "@/components/shop/price";
+import { AddToCartButton } from "@/components/shop/add-to-cart-button";
 import type { CatalogItem } from "@/types/catalog";
 
 type DetailLayoutProps = {
@@ -53,6 +54,12 @@ export function DetailLayout({
             </p>
           )}
           <p className="text-lg text-muted-foreground">{item.description}</p>
+          <AddToCartButton
+            kind={item.kind}
+            id={item.id}
+            name={item.name}
+            className="md:max-w-sm"
+          />
           {children}
         </div>
       </div>

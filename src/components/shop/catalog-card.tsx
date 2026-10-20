@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { AddToCartButton } from "@/components/shop/add-to-cart-button";
 import { FoodImage } from "@/components/shop/food-image";
 import { Price } from "@/components/shop/price";
 import type { CatalogItem } from "@/types/catalog";
@@ -34,8 +35,9 @@ export function CatalogCard({ item }: CatalogCardProps) {
         <p className="line-clamp-2 text-sm text-muted-foreground">
           {item.description}
         </p>
-        <div className="mt-auto pt-2">
+        <div className="mt-auto space-y-3 pt-2">
           <Price original={item.originalPrice} final={item.finalPrice} />
+          <AddToCartButton kind={item.kind} id={item.id} name={item.name} />
         </div>
       </div>
     </article>
