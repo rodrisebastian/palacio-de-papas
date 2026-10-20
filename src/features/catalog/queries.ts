@@ -20,7 +20,7 @@ type ProductRow = {
 
 type ComboRow = Omit<ProductRow, "categoryId">;
 
-async function getActivePromotions(): Promise<PromotionRule[]> {
+export async function getActivePromotions(): Promise<PromotionRule[]> {
   await connection();
   const now = new Date();
 

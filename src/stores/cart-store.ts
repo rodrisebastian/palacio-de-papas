@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
+import { MAX_NOTE_LENGTH, MAX_QUANTITY } from "@/lib/cart-limits";
 
 export type CartItemKind = "product" | "combo";
 
@@ -9,9 +10,6 @@ export type CartItem = {
   quantity: number;
   note: string;
 };
-
-export const MAX_QUANTITY = 20;
-export const MAX_NOTE_LENGTH = 140;
 
 type CartState = {
   items: CartItem[];
